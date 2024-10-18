@@ -1,0 +1,134 @@
+
+@property --star-density {
+    syntax: '<number>';
+    initial-value: 0.5;
+    inherits: false;
+}
+
+@property --star-opacity {
+    syntax: '<number>';
+    initial-value: 0.5;
+    inherits: false;
+}
+
+:root {
+    --space-color: #0a0a2a;
+    --text-color: #ffffff;
+    --accent-color: #00ffff;
+    --planet-color: #ff6b6b;
+    --animation-speed: 20s;
+}
+
+@keyframes space-travel {
+    0%, 100% { background-position: 0 0; }
+    50% { background-position: 100% 100%; }
+}
+
+@keyframes twinkle {
+    0%, 100% { --star-opacity: 0.5; --star-density: 0.5; }
+    50% { --star-opacity: 1; --star-density: 1; }
+}
+
+@keyframes orbit {
+    0% { transform: rotate(0deg) translateX(150px) rotate(0deg); }
+    100% { transform: rotate(360deg) translateX(150px) rotate(-360deg); }
+}
+
+@keyframes pulse {
+    0%, 100% { transform: scale(1); }
+    50% { transform: scale(1.1); }
+}
+
+body, html {
+    height: 100%;
+    margin: 0;
+    font-family: 'Arial', sans-serif;
+    overflow: hidden;
+    background-color: var(--space-color);
+    color: var(--text-color);
+}
+
+.space-container {
+    height: 100%;
+    background-image: 
+        radial-gradient(
+            circle,
+            rgba(255, 255, 255, var(--star-opacity)) 1px,
+            transparent 1px
+        );
+    background-size: 50px 50px;
+    animation: 
+        space-travel var(--animation-speed) linear infinite,
+        twinkle calc(var(--animation-speed) / 2) ease-in-out infinite alternate;
+}
+
+.planet {
+    width: 200px;
+    height: 200px;
+    background: radial-gradient(circle at 30% 30%, var(--planet-color), #000);
+    border-radius: 50%;
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    box-shadow: 0 0 50px rgba(255, 107, 107, 0.5);
+}
+
+.satellite {
+    width: 40px;
+    height: 20px;
+    background-color: var(--accent-color);
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    border-radius: 50% 50% 0 0;
+    animation: orbit 10s linear infinite;
+}
+
+.dashboard {
+    position: absolute;
+    bottom: 20px;
+    left: 50%;
+    transform: translateX(-50%);
+    background: rgba(0, 0, 0, 0.7);
+    padding: 20px;
+    border-radius: 10px;
+    display: flex;
+    gap: 20px;
+}
+
+.dashboard-item {
+    text-align: center;
+}
+
+.dashboard-value {
+    font-size: 2em;
+    color: var(--accent-color);
+    animation: pulse 2s ease-in-out infinite;
+}
+
+.space-title {
+    position: absolute;
+    top: 20px;
+    left: 50%;
+    transform: translateX(-50%);
+    font-size: 2em;
+    text-align: center;
+    text-shadow: 0 0 10px var(--accent-color);
+}
+
+@media (max-width: 600px) {
+    .dashboard {
+        flex-direction: column;
+        bottom: 10px;
+    }
+
+    .space-title {
+        font-size: 1.5em;
+    }
+
+    .planet {
+        width: 150px;
+        height: 150px;
+    }
+}
