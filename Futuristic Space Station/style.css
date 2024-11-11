@@ -1,0 +1,164 @@
+
+        :root {
+            --primary-color: #00ffff;
+            --secondary-color: #ff00ff;
+            --background-color: #000033;
+        }
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            background-color: var(--background-color);
+            background-image: url("Solar_Eclipse_2020.jpg");
+            background-size: cover;
+            background-position: center;
+            background-repeat: no-repeat;
+            background-attachment: fixed;
+            color: var(--primary-color);
+            font-family: 'Arial', sans-serif;
+            min-height: 100vh;
+            overflow: hidden;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+        }
+
+        .space-station {
+            width: 300px;
+            height: 300px;
+            position: relative;
+            transform-style: preserve-3d;
+            animation: rotate 20s linear infinite;
+        }
+
+        .module {
+            position: absolute;
+            width: 100px;
+            height: 100px;
+            background: rgba(0, 255, 255, 0.1);
+            border: 2px solid var(--primary-color);
+            border-radius: 10px;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            font-size: 14px;
+            text-align: center;
+            cursor: pointer;
+            transition: all 0.3s ease;
+            overflow: hidden;
+        }
+
+        .module::before {
+            content: '';
+            position: absolute;
+            top: -50%;
+            left: -50%;
+            width: 200%;
+            height: 200%;
+            background: conic-gradient(
+                transparent,
+                transparent,
+                transparent,
+                var(--primary-color)
+            );
+            animation: rotate 4s linear infinite;
+        }
+
+        .module::after {
+            content: '';
+            position: absolute;
+            inset: 3px;
+            background: rgba(0, 0, 51, 0.7);  
+            border-radius: 7px;
+            z-index: -1;
+        }
+
+        .module:nth-child(1) { transform: translateZ(100px); }
+        .module:nth-child(2) { transform: translateZ(-100px) rotateY(180deg); }
+        .module:nth-child(3) { transform: translateX(-100px) rotateY(-90deg); }
+        .module:nth-child(4) { transform: translateX(100px) rotateY(90deg); }
+        .module:nth-child(5) { transform: translateY(-100px) rotateX(90deg); }
+        .module:nth-child(6) { transform: translateY(100px) rotateX(-90deg); }
+
+        .module:hover {
+            background: rgba(255, 0, 255, 0.2);
+            transform: scale(1.1) translateZ(110px);
+        }
+
+        .connector {
+            position: absolute;
+            background: var(--secondary-color);
+            opacity: 0.6;
+        }
+
+        .connector-h {
+            width: 300px;
+            height: 2px;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+        }
+
+        .connector-v {
+            width: 2px;
+            height: 300px;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+        }
+
+        @keyframes rotate {
+            0% { transform: rotateX(0) rotateY(0); }
+            100% { transform: rotateX(360deg) rotateY(360deg); }
+        }
+
+        .stars {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            pointer-events: none;
+            z-index: -1;
+        }
+
+        .star {
+            position: absolute;
+            background: white;
+            border-radius: 50%;
+            animation: twinkle var(--duration) ease-in-out infinite;
+            opacity: 0;
+        }
+
+        @keyframes twinkle {
+            0%, 100% { opacity: 0; }
+            50% { opacity: 1; }
+        }
+
+        @media (max-width: 600px) {
+            .space-station {
+                width: 200px;
+                height: 200px;
+            }
+
+            .module {
+                width: 70px;
+                height: 70px;
+                font-size: 10px;
+            }
+
+            .module:nth-child(1) { transform: translateZ(70px); }
+            .module:nth-child(2) { transform: translateZ(-70px) rotateY(180deg); }
+            .module:nth-child(3) { transform: translateX(-70px) rotateY(-90deg); }
+            .module:nth-child(4) { transform: translateX(70px) rotateY(90deg); }
+            .module:nth-child(5) { transform: translateY(-70px) rotateX(90deg); }
+            .module:nth-child(6) { transform: translateY(70px) rotateX(-90deg); }
+
+            .connector-h { width: 200px; }
+            .connector-v { height: 200px; }
+        }
+    
