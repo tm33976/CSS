@@ -1,0 +1,115 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Gmail Clone</title>
+    <link rel="stylesheet" href="styles.css" />
+    <link
+      href="https://fonts.googleapis.com/icon?family=Material+Icons"
+      rel="stylesheet"
+    />
+  </head>
+  <body>
+    <header>
+      <div class="left-section">
+        <button class="menu-button">
+          <span class="material-icons">menu</span>
+        </button>
+        <img
+          src="https://ssl.gstatic.com/ui/v1/icons/mail/rfr/logo_gmail_lockup_default_1x_r2.png"
+          alt="Gmail"
+          class="logo"
+        />
+      </div>
+      <div class="middle-section">
+        <div class="search-bar">
+          <button class="search-button">
+            <span class="material-icons">search</span>
+          </button>
+          <input type="text" placeholder="Search mail" />
+          <button class="filter-button">
+            <span class="material-icons">tune</span>
+          </button>
+        </div>
+      </div>
+      <div class="right-section">
+        <button class="icon-button">
+          <span class="material-icons">help_outline</span>
+        </button>
+        <button class="icon-button">
+          <span class="material-icons">settings</span>
+        </button>
+        <button class="icon-button">
+          <span class="material-icons">apps</span>
+        </button>
+        <button class="avatar-button">
+          <img
+            src="https://imgs.search.brave.com/oTZtx7xk5f36y7Ur0OYIyIPRQ51MfIDZCf5UcDo9rBo/rs:fit:860:0:0:0/g:ce/aHR0cHM6Ly90My5m/dGNkbi5uZXQvanBn/LzA4LzE1LzA1LzY2/LzM2MF9GXzgxNTA1/NjYwMl9KS01aUWhR/T0Zrb2JwU2lCSzhO/dUNsOEJNUG9hRlFM/dS5qcGc"
+            alt="User Avatar"
+            class="avatar"
+          />
+        </button>
+      </div>
+    </header>
+    <main>
+      <nav class="sidebar">
+        <button class="compose-button">
+          <span class="material-icons">edit</span>
+          Compose
+        </button>
+        <ul class="nav-items">
+          <li class="active">
+            <span class="material-icons">inbox</span> Inbox
+          </li>
+          <li><span class="material-icons">star</span> Starred</li>
+          <li><span class="material-icons">access_time</span> Snoozed</li>
+          <li><span class="material-icons">send</span> Sent</li>
+          <li><span class="material-icons">insert_drive_file</span> Drafts</li>
+          <li><span class="material-icons">expand_more</span> More</li>
+        </ul>
+        <div class="labels">
+          <h3>Labels</h3>
+          <ul>
+            <li>
+              <span class="material-icons" style="color: #4285f4">label</span>
+              Work
+            </li>
+            <li>
+              <span class="material-icons" style="color: #0f9d58">label</span>
+              Personal
+            </li>
+            <li>
+              <span class="material-icons" style="color: #db4437">label</span>
+              Important
+            </li>
+          </ul>
+        </div>
+      </nav>
+      <div class="email-list">
+        <div class="email-controls">
+          <div class="left-controls">
+            <input type="checkbox" id="select-all" />
+            <button class="icon-button">
+              <span class="material-icons">refresh</span>
+            </button>
+            <button class="icon-button">
+              <span class="material-icons">more_vert</span>
+            </button>
+          </div>
+          <div class="right-controls">
+            <button class="text-button">1-50 of 1,234</button>
+            <button class="icon-button">
+              <span class="material-icons">chevron_left</span>
+            </button>
+            <button class="icon-button">
+              <span class="material-icons">chevron_right</span>
+            </button>
+          </div>
+        </div>
+        <div class="email-list-content"></div>
+      </div>
+    </main>
+    <script src="script.js"></script>
+  </body>
+</html>

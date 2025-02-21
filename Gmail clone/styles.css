@@ -1,0 +1,268 @@
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+body {
+  font-family: Arial, sans-serif;
+  background-color: #f6f8fc;
+  color: #202124;
+  height: 100vh;
+  display: flex;
+  flex-direction: column;
+}
+
+header {
+  background-color: #fff;
+  border-bottom: 1px solid #dadce0;
+  padding: 8px 16px;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  height: 64px;
+}
+
+.left-section,
+.middle-section,
+.right-section {
+  display: flex;
+  align-items: center;
+}
+
+.menu-button,
+.icon-button {
+  background: none;
+  border: none;
+  cursor: pointer;
+  padding: 8px;
+  border-radius: 50%;
+  color: #5f6368;
+}
+
+.menu-button:hover,
+.icon-button:hover {
+  background-color: rgba(60, 64, 67, 0.08);
+}
+
+.logo {
+  height: 40px;
+  margin-left: 8px;
+}
+
+.search-bar {
+  background-color: #f1f3f4;
+  border-radius: 8px;
+  display: flex;
+  align-items: center;
+  padding: 0 8px;
+  width: 720px;
+  height: 48px;
+}
+
+.search-bar input {
+  flex-grow: 1;
+  background: none;
+  border: none;
+  font-size: 16px;
+  padding: 0 8px;
+}
+
+.search-bar input:focus {
+  outline: none;
+}
+
+.avatar-button {
+  background: none;
+  border: none;
+  cursor: pointer;
+  padding: 4px;
+}
+
+.avatar {
+  width: 32px;
+  height: 32px;
+  border-radius: 50%;
+}
+
+main {
+  display: flex;
+  flex-grow: 1;
+  overflow: hidden;
+}
+
+.sidebar {
+  width: 256px;
+  background-color: #fff;
+  padding: 8px 0;
+  overflow-y: auto;
+}
+
+.compose-button {
+  background-color: #c2e7ff;
+  color: #001d35;
+  border: none;
+  border-radius: 16px;
+  padding: 0 24px 0 16px;
+  height: 56px;
+  font-size: 14px;
+  font-weight: 500;
+  display: flex;
+  align-items: center;
+  margin: 8px 16px 16px;
+  cursor: pointer;
+  transition: box-shadow 0.08s linear,
+    min-width 0.15s cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+.compose-button:hover {
+  box-shadow: 0 1px 3px 0 rgba(60, 64, 67, 0.302),
+    0 4px 8px 3px rgba(60, 64, 67, 0.149);
+}
+
+.compose-button .material-icons {
+  margin-right: 8px;
+}
+
+.nav-items,
+.labels ul {
+  list-style-type: none;
+}
+
+.nav-items li,
+.labels li {
+  display: flex;
+  align-items: center;
+  padding: 0 12px 0 26px;
+  height: 32px;
+  font-size: 14px;
+  cursor: pointer;
+}
+
+.nav-items li:hover,
+.labels li:hover {
+  background-color: #f1f3f4;
+  border-top-right-radius: 20px;
+  border-bottom-right-radius: 20px;
+}
+
+.nav-items li.active {
+  background-color: #d3e3fd;
+  color: #001d35;
+  font-weight: bold;
+  border-top-right-radius: 20px;
+  border-bottom-right-radius: 20px;
+}
+
+.nav-items .material-icons,
+.labels .material-icons {
+  margin-right: 18px;
+}
+
+.labels h3 {
+  font-size: 16px;
+  font-weight: normal;
+  padding: 16px 12px 8px 26px;
+  color: #5f6368;
+}
+
+.email-list {
+  flex-grow: 1;
+  overflow-y: auto;
+  background-color: #fff;
+  margin: 16px 16px 16px 0;
+  border-radius: 16px;
+}
+
+.email-controls {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 8px 16px;
+  border-bottom: 1px solid #dadce0;
+}
+
+.left-controls,
+.right-controls {
+  display: flex;
+  align-items: center;
+}
+
+.text-button {
+  background: none;
+  border: none;
+  color: #5f6368;
+  font-size: 12px;
+  cursor: pointer;
+}
+
+.email-item {
+  display: flex;
+  align-items: center;
+  padding: 8px 16px;
+  border-bottom: 1px solid #f1f3f4;
+  cursor: pointer;
+}
+
+.email-item:hover {
+  box-shadow: inset 1px 0 0 #dadce0, inset -1px 0 0 #dadce0,
+    0 1px 2px 0 rgba(60, 64, 67, 0.3), 0 1px 3px 1px rgba(60, 64, 67, 0.15);
+}
+
+.email-item input[type="checkbox"] {
+  margin-right: 16px;
+}
+
+.email-item .star {
+  margin-right: 16px;
+  color: #f1f3f4;
+}
+
+.email-item .star:hover {
+  color: #f2c960;
+}
+
+.email-item .sender {
+  width: 200px;
+  font-weight: bold;
+}
+
+.email-item .subject {
+  flex-grow: 1;
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
+
+.email-item .date {
+  width: 100px;
+  text-align: right;
+  color: #5f6368;
+}
+@keyframes fadeIn {
+  from {
+    opacity: 0;
+  }
+  to {
+    opacity: 1;
+  }
+}
+
+.email-item {
+  animation: fadeIn 0.3s ease-in-out;
+}
+
+@keyframes slideIn {
+  from {
+    transform: translateY(20px);
+    opacity: 0;
+  }
+  to {
+    transform: translateY(0);
+    opacity: 1;
+  }
+}
+
+.compose-button {
+  animation: slideIn 0.3s ease-in-out;
+}
